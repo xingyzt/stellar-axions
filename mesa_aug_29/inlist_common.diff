@@ -1,0 +1,86 @@
+0a1
+> ! vim: filetype=fortran
+8c9
+<       new_net_name = 'approx21_cr60_plus_co56.net'
+---
+>       new_net_name = 'mesa_80.net'
+31,38c32,39
+<       num_special_rate_factors = 2
+<       reaction_for_special_factor(1) = 'r_c12_ag_o16'
+<       special_rate_factor(1) = 1
+<       filename_of_special_rate(1) = 'c12ag_deboer_sigma_0p0_2000_Tgrid.dat'
+< 
+<       reaction_for_special_factor(2) = 'r_he4_he4_he4_to_c12'
+<       special_rate_factor(2) = 1
+<       filename_of_special_rate(2) = 'r_he4_he4_he4_to_c12_cf88.txt'
+---
+>       ! num_special_rate_factors = 2
+>       ! reaction_for_special_factor(1) = 'r_c12_ag_o16'
+>       ! special_rate_factor(1) = 1
+>       ! filename_of_special_rate(1) = 'c12ag_deboer_sigma_0p0_2000_Tgrid.dat'
+> 
+>       ! reaction_for_special_factor(2) = 'r_he4_he4_he4_to_c12'
+>       ! special_rate_factor(2) = 1
+>       ! filename_of_special_rate(2) = 'r_he4_he4_he4_to_c12_cf88.txt'
+44c45
+<       pgstar_flag = .false.
+---
+>       pgstar_flag = .true.
+193c194
+<       never_skip_hard_limits = .true
+---
+>       never_skip_hard_limits = .true.
+199a201
+>       delta_lgL_Nuc_limit = 0.1
+200a203
+>       delta_log_eps_nuc_limit = 0.1
+204c207
+<       delta_lgRho_cntr_limit = 0.03
+---
+>       delta_lgRho_cntr_limit = 3d-2
+209c212
+<       delta_lgT_cntr_limit = 0.002  
+---
+>       delta_lgT_cntr_limit = 2d-3
+213c216
+<       delta_lgT_max_limit = 0.002     
+---
+>       delta_lgT_max_limit = 2d-3
+221c224
+<       dX_nuc_drop_limit_at_high_T = 2d-2  ! default = -1 = same as dX_nuc_drop_limit
+---
+>       dX_nuc_drop_limit_at_high_T = -1  ! default = -1 = same as dX_nuc_drop_limit
+281,282c284,289
+<       !dX_limit_species(3) = 'fe56'
+<       !dX_limit(3) = 0.1
+---
+>       dX_limit_species(3) = 'fe56'
+>       dX_limit(3) = 0.1
+> 
+>       dX_limit_species(4) = 'ni62'
+>       dX_limit(4) = 0.1
+> 
+291,292c298,299
+<       mesh_delta_coeff = 2.5 ! try 1.0 or below in production run
+<       mesh_delta_coeff_for_highT = 1.5 ! try 1.0 or below in production run
+---
+>       mesh_delta_coeff = 2.0 ! try 1.0 or below in production run
+>       mesh_delta_coeff_for_highT = 1.0 ! try 1.0 or below in production run
+345c352
+<       op_split_burn_min_T = 4d9 
+---
+>       op_split_burn_min_T = 1d9 
+356c363
+<        photo_interval         = 200 !1000
+---
+>        photo_interval         = 10 !1000
+358c365
+<        profile_interval       = 100 
+---
+>        profile_interval       = 1 
+362c369
+<        terminal_interval      = 10
+---
+>        terminal_interval      = 1
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
